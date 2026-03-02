@@ -16,6 +16,8 @@ frontend/dist/
 frontend/.env.local
 frontend/.env.production
 frontend/package-lock.json
+frontend/Dockerfile
+README.md
 
 frontendc/
 
@@ -36,3 +38,8 @@ Thumbs.db
 backend/NF_Benchmark
 backend/eval_results
 backend/test_data/*
+backend/Dockerfile
+
+
+
+docker-compose.yml 
