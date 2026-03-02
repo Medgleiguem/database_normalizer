@@ -486,10 +486,22 @@ export default function App() {
           font-size:13px; font-family:inherit; transition:all .2s;
         }
         .btn-ghost:hover { border-color:#4dabf7; color:#4dabf7; }
+        
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+          .top-bar { padding: 0 20px !important; }
+          .hero-title { font-size: 32px !important; }
+          .hero-subtitle { font-size: 14px !important; padding: 0 10px; }
+          .main-grid { grid-template-columns: 1fr !important; }
+          .stats-row { flex-direction: column; gap: 16px !important; }
+          .file-banner { flex-direction: column; align-items: flex-start !important; }
+          .file-banner-actions { margin-left: 0 !important; width: 100%; justify-content: space-between; margin-top: 12px; }
+          .pipeline-container { justify-content: center; }
+        }
       `}</style>
 
       {/* ── Top bar ── */}
-      <div style={{
+      <div className="top-bar" style={{
         borderBottom:"1px solid #0d1a24",
         padding:"0 40px",
         display:"flex", alignItems:"center", justifyContent:"space-between",
@@ -538,7 +550,7 @@ export default function App() {
           <div className="fade-in">
             {/* Hero */}
             <div style={{ textAlign:"center", marginBottom:56 }}>
-              <div style={{
+              <div className="hero-title" style={{
                 display:"inline-block",
                 background:"linear-gradient(135deg,#4dabf7,#cc5de8)",
                 WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent",
@@ -547,14 +559,14 @@ export default function App() {
               }}>
                 Database Normalization<br/>Made Automatic
               </div>
-              <div style={{ color:"#566a7f", fontSize:15, maxWidth:520, margin:"0 auto" }}>
+              <div className="hero-subtitle" style={{ color:"#566a7f", fontSize:15, maxWidth:520, margin:"0 auto" }}>
                 Upload any Excel file. Our engine analyzes functional dependencies
                 and applies all five normal forms — NF1 through NF5 — automatically.
               </div>
             </div>
 
             {/* NF pipeline visual */}
-            <div style={{
+            <div className="pipeline-container" style={{
               background:"#0a1520",
               border:"1px solid #1a2a3a",
               borderRadius:14,
@@ -599,7 +611,7 @@ export default function App() {
         {status !== "idle" && (
           <div className="fade-in">
             {/* File info banner */}
-            <div style={{
+            <div className="file-banner" style={{
               background:"#0a1520", border:"1px solid #1a2a3a",
               borderRadius:12, padding:"16px 24px",
               display:"flex", alignItems:"center", gap:16, marginBottom:24,
@@ -612,7 +624,7 @@ export default function App() {
                   {(file?.size / 1024).toFixed(0)} KB
                 </div>
               </div>
-              <div style={{ marginLeft:"auto", display:"flex", alignItems:"center", gap:16 }}>
+              <div className="file-banner-actions" style={{ marginLeft:"auto", display:"flex", alignItems:"center", gap:16 }}>
                 {isProcessing && (
                   <div style={{ display:"flex", alignItems:"center", gap:8, color:"#ffd43b" }}>
                     <div style={{
@@ -642,7 +654,7 @@ export default function App() {
             </div>
 
             {/* NF Pipeline progress */}
-            <div style={{
+            <div className="pipeline-container" style={{
               background:"#0a1520", border:"1px solid #1a2a3a",
               borderRadius:12, padding:"16px 24px", marginBottom:24,
               display:"flex", alignItems:"center", gap:20, flexWrap:"wrap",
@@ -666,7 +678,7 @@ export default function App() {
             </div>
 
             {/* Two-column layout: terminal + content */}
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1.8fr", gap:20, alignItems:"start" }}>
+            <div className="main-grid" style={{ display:"grid", gridTemplateColumns:"1fr 1.8fr", gap:20, alignItems:"start" }}>
 
               {/* Terminal */}
               <div>
@@ -733,7 +745,7 @@ export default function App() {
 
                     {/* Stats row */}
                     {tables.length > 0 && (
-                      <div style={{
+                      <div className="stats-row" style={{
                         marginTop:20, display:"flex", gap:24, flexWrap:"wrap",
                         padding:"16px 20px", background:"#070d12",
                         border:"1px solid #0d1a24", borderRadius:10,
