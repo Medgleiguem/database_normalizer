@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+.env
+
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.production
+frontend/package-lock.json
+
+frontendc/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+
+backend/NF_Benchmark
+backend/eval_results
+backend/test_data/*
